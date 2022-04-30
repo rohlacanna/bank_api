@@ -56,7 +56,7 @@ defmodule BankApi.UserAuth do
   """
   def update_user(%User{} = user, attrs) do
     user
-    |> User.changeset(attrs)
+    |> User.update_changeset(attrs)
     |> Repo.update()
   end
 
@@ -86,6 +86,6 @@ defmodule BankApi.UserAuth do
 
   """
   def change_user(%User{} = user, attrs \\ %{}) do
-    User.changeset(user, attrs)
+    User.update_changeset(user, attrs)
   end
 end

@@ -37,14 +37,11 @@ defmodule BankApi.UserAuthTest do
       user = insert(:user)
 
       update_attrs = %{
-        email: "romulo_silva@tomate.com",
         name: "Rômulo"
       }
 
       assert {:ok, %User{} = user} = UserAuth.update_user(user, update_attrs)
-      assert user.email == "romulo_silva@tomate.com"
       assert user.name == "Rômulo"
-      assert user.password_hash == ""
     end
 
     test "update_user/2 with invalid data returns error changeset" do
