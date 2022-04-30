@@ -11,8 +11,8 @@ defmodule BankApi.UserAuthFixtures do
     {:ok, user} =
       attrs
       |> Enum.into(%{
-        email: "romulo@tomate.com",
-        name: "Rômulo Silva",
+        email: Faker.Internet.email(),
+        name: Faker.Person.PtBr.name(),
         password_hash: ""
       })
       |> BankApi.UserAuth.create_user()
