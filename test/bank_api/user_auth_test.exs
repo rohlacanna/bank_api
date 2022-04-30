@@ -1,4 +1,6 @@
 defmodule BankApi.UserAuthTest do
+  @moduledoc false
+
   use BankApi.DataCase
 
   alias BankApi.UserAuth

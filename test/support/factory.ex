@@ -1,4 +1,6 @@
 defmodule BankApi.Factory do
+  @moduledoc false
+
   # with Ecto
   use ExMachina.Ecto, repo: BankApi.Repo
 

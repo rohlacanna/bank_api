@@ -4,15 +4,19 @@ defmodule BankApi.UserAuthFixtures do
   entities via the `BankApi.UserAuth` context.
   """
 
+  alias Faker.Internet
+  alias Faker.Person.PtBr, as: Person
+
   @doc """
   Generate a user.
   """
+
   def user_fixture(attrs \\ %{}) do
     {:ok, user} =
       attrs
       |> Enum.into(%{
-        email: Faker.Internet.email(),
-        name: Faker.Person.PtBr.name(),
+        email: Internet.email(),
+        name: Person.name(),
         password_hash: ""
       })
       |> BankApi.UserAuth.create_user()
