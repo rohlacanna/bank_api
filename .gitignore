@@ -32,3 +32,6 @@ bank_api-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Ignore archive .todo
+
+/.todo
