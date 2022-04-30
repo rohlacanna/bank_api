@@ -19,7 +19,7 @@ defmodule BankApi.UserAuthFixtures do
         name: Person.name(),
         password_hash: ""
       })
-      |> BankApi.UserAuth.create_user()
+      |> BankApi.UserAuth.register_user()
 
     user
   end
