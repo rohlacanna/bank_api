@@ -35,3 +35,7 @@ npm-debug.log
 # Ignore archive .todo
 
 /.todo
+
+# Ignore archive .iex.exs
+
+/.iex.exs
