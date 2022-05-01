@@ -18,6 +18,10 @@ config :bank_api, BankApiWeb.Endpoint,
   pubsub_server: BankApi.PubSub,
   live_view: [signing_salt: "pJxdCtkP"]
 
+config :bank_api, BankApi.UserAuth.Guardian,
+  issuer: "bank_api",
+  secret_key: "hWcVKM+HdF/wcV7zX2Otznt5JCX+SWNM2J9yNfpA6xexbT500SHgAXu18Tq01vlK"
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
