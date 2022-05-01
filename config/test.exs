@@ -23,6 +23,8 @@ config :bank_api, BankApiWeb.Endpoint,
 # In test we don't send emails.
 config :bank_api, BankApi.Mailer, adapter: Swoosh.Adapters.Test
 
+config :pbkdf2_elixir, rounds: 1
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 
