@@ -6,7 +6,7 @@ defmodule BankApi.Factory do
 
   import Faker.Person.PtBr, only: [name: 0]
 
-  alias BankApi.UserAuth.User
+  alias BankApi.Users.User
 
   def user_factory do
     %User{

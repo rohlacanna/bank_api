@@ -1,14 +1,14 @@
 defmodule BankApiWeb.SessionController do
   use BankApiWeb, :controller
 
-  alias BankApi.UserAuth
-  alias BankApi.UserAuth.Guardian
-  alias BankApi.UserAuth.User
+  alias BankApi.Users
+  alias BankApi.Users.Guardian
+  alias BankApi.Users.User
 
   action_fallback BankApiWeb.FallbackController
 
   def create(conn, %{"credentials" => %{"email" => email, "password" => password}}) do
-    with {:ok, %User{} = user} <- UserAuth.authenticate_user(email, password),
+    with {:ok, %User{} = user} <- Users.authenticate_user(email, password),
          {:ok, token, _claim} = encode_and_sign(user) do
       conn
       |> put_status(:created)

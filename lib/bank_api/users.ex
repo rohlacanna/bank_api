@@ -1,12 +1,12 @@
-defmodule BankApi.UserAuth do
+defmodule BankApi.Users do
   @moduledoc """
-  The UserAuth context.
+  The Users context.
   """
 
   import Ecto.Query, warn: false
   alias BankApi.Repo
 
-  alias BankApi.UserAuth.User
+  alias BankApi.Users.User
 
   @doc """
   Gets a single user.
