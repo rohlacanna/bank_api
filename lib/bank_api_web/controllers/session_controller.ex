@@ -23,4 +23,10 @@ defmodule BankApiWeb.SessionController do
         error
     end
   end
+
+  def delete(conn, _params) do
+    :ok = UserAuth.revoke_current_token(conn)
+
+    send_resp(conn, :no_content, "")
+  end
 end

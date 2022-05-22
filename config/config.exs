@@ -22,6 +22,11 @@ config :bank_api, BankApiWeb.UserAuth.Guardian,
   issuer: "bank_api",
   secret_key: "hWcVKM+HdF/wcV7zX2Otznt5JCX+SWNM2J9yNfpA6xexbT500SHgAXu18Tq01vlK"
 
+config :guardian, Guardian.DB,
+  repo: BankApi.Repo,
+  schema_name: "guardian_tokens",
+  sweep_interval: 60
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails

@@ -14,6 +14,7 @@ defmodule BankApi.Application do
       BankApiWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: BankApi.PubSub},
+      {Guardian.DB.Token.SweeperServer, []},
       # Start the Endpoint (http/https)
       BankApiWeb.Endpoint
       # Start a worker by calling: BankApi.Worker.start_link(arg)

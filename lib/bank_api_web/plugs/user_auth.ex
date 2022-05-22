@@ -9,4 +9,15 @@ defmodule BankApiWeb.UserAuth do
       error -> error
     end
   end
+
+  def decode_and_verify(token) do
+    Guardian.decode_and_verify(token)
+  end
+
+  def revoke_current_token(conn) do
+    case conn |> Guardian.Plug.current_token() |> Guardian.revoke() do
+      {:ok, _claims} -> :ok
+      error -> error
+    end
+  end
 end
