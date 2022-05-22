@@ -14,6 +14,10 @@ defmodule BankApiWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :user_authenticated do
+    plug BankApiWeb.UserAuth.EnsureAuthenticated
+  end
+
   scope "/", BankApiWeb do
     pipe_through :browser
 
@@ -26,6 +30,12 @@ defmodule BankApiWeb.Router do
 
     resources "/users", UserController, only: [:create]
     resources "/sessions", SessionController, only: [:create]
+  end
+
+  scope "/api", BankApiWeb do
+    pipe_through [:api, :user_authenticated]
+
+    resources "/session", SessionController, only: [:delete], singleton: true
   end
 
   # Enables LiveDashboard only for development

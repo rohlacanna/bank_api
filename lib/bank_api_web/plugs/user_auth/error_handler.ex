@@ -1,4 +1,4 @@
-defmodule BankApi.UserAuth.AuthErrorHandler do
+defmodule BankApiWeb.UserAuth.ErrorHandler do
   @moduledoc false
 
   import Plug.Conn

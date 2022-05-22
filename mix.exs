@@ -65,7 +65,8 @@ defmodule BankApi.MixProject do
       {:faker, "~> 0.17", only: :test},
       {:ex_machina, "~> 2.7.0", only: :test},
       {:pbkdf2_elixir, "~> 2.0"},
-      {:guardian, "~> 2.0"}
+      {:guardian, "~> 2.0"},
+      {:guardian_db, "~> 2.0"}
     ]
   end
 

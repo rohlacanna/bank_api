@@ -1,4 +1,4 @@
-defmodule BankApi.UserAuth.User do
+defmodule BankApi.Users.User do
   @moduledoc false
 
   use Ecto.Schema

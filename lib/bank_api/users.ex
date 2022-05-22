@@ -1,12 +1,12 @@
-defmodule BankApi.UserAuth do
+defmodule BankApi.Users do
   @moduledoc """
-  The UserAuth context.
+  The Users context.
   """
 
   import Ecto.Query, warn: false
   alias BankApi.Repo
 
-  alias BankApi.UserAuth.User
+  alias BankApi.Users.User
 
   @doc """
   Gets a single user.
@@ -101,9 +101,10 @@ defmodule BankApi.UserAuth do
   end
 
   defp check_user_password(%{password_hash: password_hash} = user, password) do
-    cond do
-      Pbkdf2.verify_pass(password, password_hash) -> {:ok, user}
-      true -> {:error, :unauthorized}
+    if Pbkdf2.verify_pass(password, password_hash) do
+      {:ok, user}
+    else
+      {:error, :unauthorized}
     end
   end
 end
