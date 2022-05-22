@@ -15,7 +15,7 @@ defmodule BankApiWeb.Router do
   end
 
   pipeline :user_authenticated do
-    plug BankApiWeb.UserAuth.Pipeline
+    plug BankApiWeb.UserAuth.EnsureAuthenticated
   end
 
   scope "/", BankApiWeb do

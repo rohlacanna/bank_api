@@ -1,5 +1,7 @@
 defmodule BankApiWeb.UserAuth do
-  @moduledoc false
+  @moduledoc """
+  Functions that handle user authentication.
+  """
 
   alias BankApiWeb.UserAuth.Guardian
 

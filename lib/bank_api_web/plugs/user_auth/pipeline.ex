@@ -1,5 +1,7 @@
-defmodule BankApiWeb.UserAuth.Pipeline do
-  @moduledoc false
+defmodule BankApiWeb.UserAuth.EnsureAuthenticated do
+  @moduledoc """
+  Ensuer the user is authenticated.
+  """
 
   use Guardian.Plug.Pipeline,
     otp_app: :bank_api,
