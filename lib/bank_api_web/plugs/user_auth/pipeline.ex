@@ -1,10 +1,10 @@
-defmodule BankApi.Users.Pipeline do
+defmodule BankApiWeb.UserAuth.Pipeline do
   @moduledoc false
 
   use Guardian.Plug.Pipeline,
     otp_app: :bank_api,
-    error_handler: BankApi.Users.ErrorHandler,
-    module: BankApi.Users.Guardian
+    error_handler: BankApiWeb.UserAuth.ErrorHandler,
+    module: BankApiWeb.UserAuth.Guardian
 
   plug Guardian.Plug.VerifySession, claims: %{"typ" => "access"}
   plug Guardian.Plug.VerifyHeader, claims: %{"typ" => "access"}
