@@ -1,4 +1,6 @@
 defmodule BankApi.Banking.Account do
+  @moduledoc false
+
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -8,9 +10,9 @@ defmodule BankApi.Banking.Account do
   @foreign_key_type :binary_id
 
   schema "account" do
-    field :current_balance, :decimal, default: Decimal.new("0.0")
+    field(:current_balance, :decimal, default: Decimal.new("0.0"))
 
-    belongs_to :user, User
+    belongs_to(:user, User)
 
     timestamps()
   end
