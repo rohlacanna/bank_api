@@ -1,8 +1,6 @@
 defmodule BankApi.UsersTest do
   @moduledoc false
 
-  import BankApi.Factory
-
   use BankApi.DataCase
 
   alias BankApi.Users

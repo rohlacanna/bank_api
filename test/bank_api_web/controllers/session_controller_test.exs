@@ -2,7 +2,6 @@ defmodule BankApiWeb.SessionControllerTest do
   @moduledoc false
 
   use BankApiWeb.ConnCase, async: true
-  import BankApi.Factory
 
   alias BankApi.Users
 

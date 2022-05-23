@@ -1,8 +1,6 @@
 defmodule BankApi.BankingTest do
   use BankApi.DataCase
 
-  import BankApi.Factory
-
   alias BankApi.Banking
   alias BankApi.Banking.Account
   alias BankApi.Users.User
