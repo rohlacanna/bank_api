@@ -26,6 +26,8 @@ defmodule BankApi.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import BankApi.DataCase
+      import BankApi.Factory
+      import BankApi.UserHelpers
     end
   end
 
