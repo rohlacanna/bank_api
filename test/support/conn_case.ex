@@ -30,6 +30,9 @@ defmodule BankApiWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint BankApiWeb.Endpoint
+
+      import BankApi.Factory
+      import BankApi.UserHelpers
     end
   end
 

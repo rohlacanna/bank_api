@@ -7,10 +7,14 @@ defmodule BankApiWeb.UserController do
   action_fallback BankApiWeb.FallbackController
 
   def create(conn, %{"user" => user_params}) do
-    with {:ok, %User{} = user} <- Users.register_user(user_params) do
-      conn
-      |> put_status(:created)
-      |> render("show.json", user: user)
+    case BankApi.register_user_and_account(user_params) do
+      {:ok, %{user: %User{} = user}} ->
+        conn
+        |> put_status(:created)
+        |> render("show.json", user: user)
+
+      {:error, _, reason, _} ->
+        {:error, reason}
     end
   end
 
