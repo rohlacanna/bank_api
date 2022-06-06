@@ -53,4 +53,10 @@ defmodule BankApi.Banking.Transaction do
   end
 
   defp normalize_account_ids(changeset), do: changeset
+
+  def insuficient_funds_changeset(transaction) do
+    transaction
+    |> change()
+    |> add_error(:amount, "insuficient funds")
+  end
 end
