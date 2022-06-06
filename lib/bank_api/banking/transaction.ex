@@ -2,8 +2,8 @@ defmodule BankApi.Banking.Transaction do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Ecto.Changeset
   alias BankApi.Banking.Account
+  alias Ecto.Changeset
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
@@ -25,8 +25,8 @@ defmodule BankApi.Banking.Transaction do
     |> validate_required([:type, :amount])
     |> validate_number(:amount, greater_than: 0)
     |> validate_account_ids()
-    |> assoc_constraint(:from_account_id)
-    |> assoc_constraint(:to_account_id)
+    |> assoc_constraint(:from_account)
+    |> assoc_constraint(:to_account)
   end
 
   defp validate_account_ids(%Changeset{changes: %{type: :deposit}} = changeset) do
@@ -40,4 +40,6 @@ defmodule BankApi.Banking.Transaction do
   defp validate_account_ids(%Changeset{changes: %{type: :transference}} = changeset) do
     validate_required(changeset, [:from_account_id, :to_account_id])
   end
+
+  defp validate_account_ids(changeset), do: changeset
 end
