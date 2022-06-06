@@ -31,7 +31,7 @@ defmodule BankApi.BankingTest do
       assert errors_on(changeset) == %{user: ["does not exist"]}
     end
 
-    test "account_from_user/1 with valid user returns the accounts" do
+    test "account_from_user/1 with valid user returns the account" do
       user = insert(:user)
       expected_account = insert(:account, user_id: user.id)
 
@@ -77,6 +77,35 @@ defmodule BankApi.BankingTest do
 
       params = %{
         type: :deposit,
+        amount: "100.0"
+      }
+
+      Banking.create_transaction(account, params)
+      account = Banking.get_account!(account.id)
+
+      assert account.current_balance == Decimal.new("100.0")
+    end
+
+    test "create_transaction/2 with valid withdraw data creates a withdraw transaction" do
+      account = insert(:account)
+
+      params = %{
+        type: :withdraw,
+        amount: "100.0"
+      }
+
+      assert {:ok, %Transaction{} = transaction} = Banking.create_transaction(account, params)
+      assert transaction.type == :withdraw
+      assert transaction.amount == Decimal.new("100.0")
+      assert transaction.from_account_id == account.id
+      assert transaction.to_account_id == nil
+    end
+
+    test "create_transaction/2 with valid withdraw data update the account current_balance" do
+      account = insert(:account, current_balance: Decimal.new("200.0"))
+
+      params = %{
+        type: :withdraw,
         amount: "100.0"
       }
 
